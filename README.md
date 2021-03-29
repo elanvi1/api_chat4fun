@@ -143,3 +143,75 @@
 ### Method: `GET`
 ### Payload: `none`
 ### Purpose: It is used to delete information about a group in the groups table. Requires access token and the page must be specified as a query parameter
+
+
+## Endpoint: `/friendship`
+### Method: `GET`
+### Payload: `none`
+### Purpose: It retrieves information about all contacts, the last message from the chat with each contact and info about the friendship with each contact. Requires access token.
+
+
+## Endpoint: `/friendship`
+### Method: `POST`
+### Payload: `{'friend_id'}`
+### Purpose: Depending on the existence or status of the friendships there are multiple scenarios, for more info check FriendshipController.php -> store method . Requires access token.
+
+
+## Endpoint: `/friendship/{friendship}`
+### Method: `PATCH/PUT`
+### Payload: `{'status','alias'}`
+### Purpose: It is used to change the status of the friendship or the alias of the contact . Requires access token.
+
+
+## Endpoint: `/friendship/{friendship}/handleAcceptOrReject`
+### Method: `POST`
+### Payload: `{'status'}`
+### Purpose: It is used by the main user to reject or accept a friendship request. Requires access token.
+
+
+## Endpoint: `/active`
+### Method: `POST`
+### Payload: `{'user_id'}`
+### Purpose: Makes the main user active on a certain contact chat by changing the value of "presence_friend" attribute in the friendships table. Requires access token.
+
+
+## Endpoint: `/inactive`
+### Method: `POST`
+### Payload: `{'user_id'}`
+### Purpose: Makes the main user inactive on a certain contact chat by changing the value of "presence_friend" attribute in the friendships table. Requires access token.
+
+
+## Endpoint: `/friendship/{friendship}/resetUnreadMessages`
+### Method: `GET`
+### Payload: `none`
+### Purpose: Resets the number of unread messages for a chat by changing the "unread_messages" attribute in the friendships table. Requires access token.
+
+
+## Endpoint: `/userIdsPendingFriendships`
+### Method: `GET`
+### Payload: `none`
+### Purpose: Returns the ids of the users with which the main user has a friendship with "pending" status. This means that a friendship request was sent by one of the two but no response was received. Requires access token.
+
+
+## Endpoint: `/message`
+### Method: `POST`
+### Payload: `{'sender_id', 'receiver_id', 'receiver_type','message'}`
+### Purpose: It is used to store information about a message in the DB. Requires access token.
+
+
+## Endpoint: `/message/{message}`
+### Method: `DELETE`
+### Payload: `none`
+### Purpose: It is used to delete information about a message from the DB. Requires access token.
+
+
+## Endpoint: `/notification`
+### Method: `GET`
+### Payload: `none`
+### Purpose: It is used to retrieve the main users notifications from the DB. Requires access token.
+
+
+## Endpoint: `/notification/{notification}`
+### Method: `PATCH/PUT`
+### Payload: `{'status'}`
+### Purpose: It is used to change the status of a notification. Requires access token.
