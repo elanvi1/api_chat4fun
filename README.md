@@ -215,3 +215,7 @@
 ### Method: `PATCH/PUT`
 ### Payload: `{'status'}`
 ### Purpose: It is used to change the status of a notification. Requires access token.
+
+
+# TO REPLACE
+After installing all the composer packages, go to the TO REPLACE IN SANCTUM folder and copy the `php` files in there to the path specied in the `folder_location.txt` file
